@@ -18,8 +18,6 @@ df.info()
 
 df.describe()
 
-# pd.reset_option('display.max_rows') default
-# pd.set_option('display.max_rows', None) max rows
 
 df['price'].isnull()
 
@@ -29,9 +27,6 @@ x_encoded.dtypes
 
 x_encoded
 
-# bool_cols = x_encoded.select_dtypes(include='bool').columns (selecting the cloumns which only conatian dtype of bool)
-# x_encoded[bool_cols] = x_encoded[bool_cols].astype(int) (and chaning the type to int)
-# x_encoded
 
 """Phase 1
 Using just numerical features
@@ -86,24 +81,13 @@ Actual price vs predicted price
 import matplotlib.pyplot as plt
 
 plt.scatter(y_test,y_pred)
-# plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], '--', linewidth=1, label='ideal')
 plt.xlabel('Actual prices')
 plt.ylabel('Predicted prices')
 plt.title('HP predictions')
 plt.show()
 
 
-# X = X.reshape(-1,1)
-# print(X)
-# plt.scatter(X,y)
-# y_line = model.predict(X)
-# plt.plot(X,y_line)
-# plt.show()
-
 input_feature = 'bedrooms'
-# plt.figure(figsize=(20, 20))
-# plt.ylim(0, 1)
-# plt.yticks(range(0, 1, .1))
 plt.scatter(X_test[input_feature],y_test)
 plt.xlabel(input_feature)
 plt.ylabel('price')
@@ -113,11 +97,8 @@ X.dtypes
 
 """Phase 2"""
 
-# price is removed
 x_encoded = x_encoded.drop('price',axis=1)
 x_encoded
-# y_encoded = df['price']
-# y_encoded
 y_encoded = df['price']
 y_encoded
 print(x_encoded.shape)
@@ -150,8 +131,6 @@ coff_df = pd.DataFrame({
 
 coff_df.sort_values(by='coffecient',ascending=True)
 
-# for i in (x_encoded_train.columns):
-  # print(index(i))
 
 """predicions"""
 
